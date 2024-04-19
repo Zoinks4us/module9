@@ -1,4 +1,8 @@
 // TODO: Create a function that returns a license badge based on which license is passed in
+
+const fs = require('fs')
+const index = require('../index.js')
+const inquirer = require('inquirer')
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {}
 
@@ -7,9 +11,7 @@ function renderLicenseBadge(license) {}
 function renderLicenseLink(license) {}
 
 // TODO: Create a function that returns the license section of README
-const fs = require('fs')
-const index = require('..index/')
-const inquirer = require('inquirer')
+
 // If there is no license, return an empty string
 function renderLicenseSection(license) {}
 
