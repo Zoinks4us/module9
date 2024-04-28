@@ -1,7 +1,7 @@
 // TODO: Include packages needed for this application
-const fs = require('fs')
-const script = require('./utils/generateMarkdown')
-const inquirer = require('inquirer')
+const fs = require('fs');
+const script = require('./utils/generateMarkdown.js');
+const inquirer = require('inquirer');
 
 // TODO: Create an array of questions for user input
 const questions = () => {
@@ -68,8 +68,8 @@ const questions = () => {
      },
      {
        type: 'input',
-       name: 'liscense',
-       message: 'What liscense did you use? if w/o one, levae blank'
+       name: 'licsense',
+       message: 'What liscense did you use? if w/o one, leave blank'
      },
    ])
    
@@ -80,18 +80,29 @@ const questions = () => {
 
 // TODO: Create a function to write README file
 function writeToFile(readme) {
-  fs.writeFile('New-README.md', )
+  fs.writeFile('./New-README.md', readme, (err) => {
+      if (err) {
+          console.error('Error writing file:', err);
+      } else {
+          console.log('ReadMe created successfully');
+      }
+  });
 }
+    
+  
+
 
 // TODO: Create a function to initialize app
 function init() {
   questions()
-  .then(function(answer){
-    var readme = script(answer);
-    writeToFile(readme)
-  }
+  .then(answer => {
+  let readme = script(answer);
+  writeToFile(readme);
+  })
+  .catch(error => {
+    console.error('Error:', error);
+});
 
-  );
 }
 
 // Function call to initialize app
